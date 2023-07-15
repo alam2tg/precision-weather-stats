@@ -1,2 +1,8 @@
+* {
+   flex-direction: column;
+}
 
+#city-form {
+   width:30%;
+}
 

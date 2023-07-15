@@ -5,70 +5,50 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="assets/reset.css">
-   <link rel="stylesheet" href="assets/style.css">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <link rel="stylesheet" href="assets/style.css">
    <title>Document</title>
 </head>
 
 <body>
-   <div id="city">
-      <form>
-         <label for="City">Enter City Here: </label>
-         <input type="text" id="cityInput" placeholder="Enter City Here">
+   <header>
+      <h1 class="bg-info border-primary border 30px">Weather Dashboard</h1>
+   </header>
+   <div class="flex-column" id="city-form">
+      <form id="city-form-container" >
+         <label for="city-label"><h2>Search for a city!</h2></label><br>
+         <input type="text" id="city-input" placeholder="Enter City Here">
+         <button id="search-button">Search</button> 
       </form>
    </div>
    <br>
-   <div>Search Results - Current Conditions / Future Conditions</div>
+   <div id="weather-forecast">Search Results</div>
    <br>
    <br>
 
    <!--Bootstrap Table Below src="https://getbootstrap.com/docs/5.3/content/tables/"-->
    <!--city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the wind speed-->
 
-   <table class="table table-striped-columns">
-      <thead>
+   <table class="table" id="5-day-forecast">
+      <thead id="5-day-forecast-dates">
          <tr>
-            <th scope="col"></th>
-            <th scope="col">Current Weather Conditions</th>
-            <th scope="col">Future Weather Conditions</th>
+            <th scope="col">5-Day Forecast: </th>
+            <td id="1"></td id="current">
+            <td id="2"></td id="current">
+            <td id="3"></td id="current">
+            <td id="4"></td id="current">
+            <td id="5"></td id="current">
       </thead>
-      <tbody>
-         <tr>
-            <th scope="row">City</th>
-            <td>TBD</td>
-            <td>TBD</td>
-         </tr>
-         <tr>
-            <th scope="row">Date</th>
-            <td>TBD</td>
-            <td>TBD</td>
-         </tr>
-         <tr>
-            <th scope="row">Condition</th>
-            <td>TBD</td>
-            <td>TBD</td>
-         </tr>
-         <tr>
-            <th scope="row">Temperature</th>
-            <td>TBD</td>
-            <td>TBD</td>
-         <tr>
-            <th scope="row">Humidity</th>
-            <td>TBD</td>
-            <td>TBD</td>
-
-         </tr>
-         <tr>
-            <th scope="row">Wind Speed</th>
-            <td>TBD</td>
-            <td>TBD</td>            
-         </tr>
+      <tbody id="5-day-forecast-data">
+         <tr id="Date-Container"><td id="Date">Date</td id="current"></tr>
+         <tr><td id="Condition">Condition</td id="current"></tr>
+         <tr><td id="Temp">Temp</td id="current"></tr>
+         <tr><td id="Wind">Wind</td id="current"></tr>
+         <tr><td id="Humidity">Humidity</td id="current"></tr>
       </tbody>
    </table>
    <!--Bootstrap Table Above-->
-
-
    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
       crossorigin="anonymous"></script>
@@ -78,7 +58,9 @@
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"></script>
-
+   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+   
    <script src="./assets/script.js"></script>
 </body>
 
