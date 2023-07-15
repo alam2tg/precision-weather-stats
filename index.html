@@ -5,9 +5,9 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="assets/reset.css">
-   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-   <link rel="stylesheet" href="assets/style.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <!-- <link rel="stylesheet" href="assets/style.css"> -->
    <title>Document</title>
 </head>
 
@@ -15,62 +15,30 @@
    <header>
       <h1 class="bg-info border-primary border 30px">Weather Dashboard</h1>
    </header>
-   <form id="search-form" class="card-body">
-      <h2>Search for a city!</h2>
-      <p id="current-day"></p>
-      <br>
-      <input type="text" id="search-input" placeholder="Enter City Here" class="form-input">
-      <button id="search-button">Search</button>
-   </form>
-   <br>
-   <div id="weather-forecast">Search Results</div>
 
-   <br>
-   <br>
+   <main class="row">
+      <section class="col-md-3">
+         <form id="search-form" class="card-body">
+            <label for="search-input">Search for a city!</label>
+            <input type="text" id="search-input" placeholder="Enter City Here" class="form-input">
+            <button type="submit">Search</button>
+         </form>
+         <hr>
+         <div id="searchHistory"></div>
+      </section>
+      <section class="col-md-9">
+         <div id="current"></div>
+         <div id="forecast"></div>
+      </section>
 
-   <!--Bootstrap Table Below src="https://getbootstrap.com/docs/5.3/content/tables/"-->
-   <!--city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the wind speed-->
+   </main>
+<footer></footer>
 
-   <table class="table" id="5-day-forecast">
-      <thead id="5-day-forecast-dates">
-         <tr>
-            <th scope="col">5-Day Forecast: </th>
-            <td id="1"></td id="current">
-            <td id="2"></td id="current">
-            <td id="3"></td id="current">
-            <td id="4"></td id="current">
-            <td id="5"></td id="current">
-         </tr>
-      </thead>
-      <tbody id="5-day-forecast-data">
-         <tr id="Date-Container">
-            <td id="Date">Date</td id="current">
-         </tr>
-         <tr>
-            <td id="Condition">Condition</td id="current">
-         </tr>
-         <tr>
-            <td id="Temp">Temp</td id="current">
-         </tr>
-         <tr>
-            <td id="Wind">Wind</td id="current">
-         </tr>
-         <tr>
-            <td id="Humidity">Humidity</td id="current">
-         </tr>
-      </tbody>
-   </table>
-   
    <!--Bootstrap Table Above-->
-   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
+
    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
       crossorigin="anonymous"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
    <script src="./assets/script.js"></script>
 </body>
 
