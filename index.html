@@ -13,17 +13,18 @@
 
 <body>
    <header>
-      <h1 class="bg-info border-primary border 30px">Weather Dashboard</h1>
+      <h1 class="bg-info border-primary border 30px">Weather Dashboard
+         <p id="current-day"></p>
+      </h1>
    </header>
-   <div class="flex-column" id="city-form">
-      <form id="city-form-container" >
-         <label for="city-label"><h2>Search for a city!</h2></label><br>
-         <input type="text" id="city-input" placeholder="Enter City Here">
-         <button id="search-button">Search</button> 
-      </form>
-   </div>
+   <form id="city-form-container" >
+      <label for="city-label"><h2>Search for a city!</h2></label><br>
+      <input type="text" id="city-input" placeholder="Enter City Here">
+      <button id="search-button">Search</button> 
+   </form>
    <br>
    <div id="weather-forecast">Search Results</div>
+   
    <br>
    <br>
 

@@ -1,33 +1,39 @@
 var weatherApiKey = "&appid=ae4879e8655b7e980953ca0c4c9ef05f";
 var weatherUrlTest = "http://api.openweathermap.org/data/2.5/weather?q=fremont"
-var weatherUrl = "http://api.openweathermap.org/data/2.5/weather?q="
 var cityTest = "fremont"
-var city = cityInput
-var cityInput;
+var fullUrl;
+var cityInput = $("#city-input").val();
+var url;
 // Test - "api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}"
-
+//http://api.openweathermap.org/data/2.5/weather?q=fremontappid=ae4879e8655b7e980953ca0c4c9ef05f
 var cityFormContainer = document.getElementById("city-form-container");
 var getCityDataTest;
 var latLongAPI;
-var date = document.getElementById('Date');
-var icon = document.getElementById('Condition');
-var temperature = document.getElementById('Temp');
-var humidity = document.getElementById('Wind');
-var windSpeed = document.getElementById('Humidity');
-var today = dayjs().format('M/D/YYYY');
+var date;
+var icon;
+var temperature;
+var humidity;
+var windSpeed;
+var today = dayjs().format('MM-DD-YYYY');
 $('#current-day').text(today);
-
-
-// GIVEN a weather dashboard with form inputs
-// WHEN I search for a city
-// THEN I am presented with current and future conditions for that city and that city is added to the search history
 
 // get current weather 
 
+//create search url to input to forecast...
+var weatherApiUrl = function resultUrl(url){
+   var baseApiUrl = "http://api.openweathermap.org/data/2.5/weather?q=";
+   var url = baseApiUrl + cityInput + weatherApiKey;
+   console.log(url); // test if working
+}
+console.log(weatherApiUrl);
+
+
+
+//fiveday forecast
 function fiveDayForecast() {
    cityInput = $("#city-input").val();
-      var urlTest = "http://api.openweathermap.org/data/2.5/weather?q="+cityTest+weatherApiKey;
-      $("#weather-forecast").empty();
+      var urlTest = "http://api.openweathermap.org/data/2.5/weather?q="+cityInput+weatherApiKey;
+      var weatherContainer = $("#weather-forecast").empty();
       fetch(urlTest)
       .then(function(response){
          return response.json();
@@ -36,7 +42,7 @@ function fiveDayForecast() {
          console.log(data)
       })
       var index = 1;
-      for (let i=7; i<data.list.length; i+=8){
+      for (var i=7; i<data.list.length; i+=8){
          var weather = data.list[i]
          var fiveDayForecast = $("<div>").att("id", "card-"+index);
          var date = $("<p></p>").text(dayjs.unix(weather.dt).format("MM-DD-YYYY"))
@@ -51,9 +57,21 @@ function fiveDayForecast() {
          fiveDayForecast.apend(image);
          $("#weather-forecast").append(fiveDayCard);
          index++;
-}}
+}console.log(weatherContainer);
+}
 fiveDayForecast();
 
+
+
+cityInput.eventListenerFunction ("input", function typeTest() {
+   var pleaseWork = typeTest.target.value
+   console.log(pleaseWork)
+}) 
+
+
+
+var searchButton = document.getElementById("search-button");
+searchButton.addEventListener("submit", resultUrl)
 
 //presented with a 5-day forecast displaying the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
 
