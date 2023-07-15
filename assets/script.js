@@ -4,11 +4,24 @@ var apiBaseUrl = "http://api.openweathermap.org/data/2.5/weather?q="
 var today = dayjs().format('MM-DD-YYYY'); //test
 $('#current-day').text(today);
 
+// var accurateUrl = "http://api.openweathermap.org/data/2.5/weather?q=fremont&appid=ae4879e8655b7e980953ca0c4c9ef05f"
+
+// fetch(accurateUrl)
+// .then(function(response){
+// return response.json();
+// })
+// .then(function(data){
+// console.log(data)
+// })
+
 //fiveday forecast - 06.10.stu-demo-dynamic
 // function creates and links vars and elements of html.
+
+
 function fiveDayForecast() {
    var city = $("#search-input").val();
       var apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city +"&appid=" + weatherApiKey;
+
       $("#weather-forecast").empty();
       fetch(apiUrl)
       .then(function(response){
@@ -16,8 +29,9 @@ function fiveDayForecast() {
       })
       .then(function(data){
       console.log(data)
+
       var index = 1;
-      for (var i=7; i<data.list.length; i+=8) {
+      for (var i=7;  i < data.list.length; i+=8) {
          var weather = data.list[i]
          var fiveDayForecast = $("<div>").attr("id", "card-" + index);
          var date = $("<p></p>").text(dayjs.unix(weather.dt).format("MM-DD-YYYY"))
@@ -37,7 +51,9 @@ function fiveDayForecast() {
 }
 //I created elements in function because I was getting confused with vars at top.
 
-function search(city) {
+function search() {
+   var city = $("#search-input").val();
+   var apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city +"&appid=" + weatherApiKey;
    fetch(apiUrl)
    getCoordinates(city)
    .then(function(coordinates) {
@@ -54,11 +70,12 @@ function search(city) {
 //$("<>) creates a new element. src:"https://stackoverflow.com/questions/15466731/jquery-what-is-the-difference-between-p-and-p"
 
 $(document).ready(function(){
-   console.log();
+   console.log("ready");
 })
+
 var searchButton = $("#search-button");
-searchButton.on('submit', fiveDayForecast);
-searchButton.on('submit', search);
+searchButton.on('click', fiveDayForecast());
+searchButton.on('click', search());
 
 
 //searchSubmitEl.addEventListener('submit', cityData)
