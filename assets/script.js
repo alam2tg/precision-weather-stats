@@ -44,7 +44,7 @@ function fiveDayForecast() {
          var index = 1;
          for (var i=7; i<data.list.length; i+=8) {
             var weather = data.list[i]
-            var fiveDayForecast = $("#5-day-forecast-data");
+            var fiveDayForecast = $("<div>").attr("id", "card-"+index);
             var date = $("<p></p>").text(dayjs.unix(weather.dt).format("MM-DD-YYYY"))
             fiveDayForecast.apend(date);
             var temp = $("<p></p>").text("Temp: "+ weather.main.temp)
